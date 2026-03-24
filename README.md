@@ -2,7 +2,7 @@
 
 This repository contains the empirical analysis conducted for:
 
-> Yeh et al. (2026). *Share Swap-Based Strategic Alliances and Market Reaction: Evidence from Taiwan*. National Taipei University.
+> Yeh et al. (2026). *Market Reactions to Share Swap-Based Strategic Alliances: Evidence from Taiwanese Listed Companies*. National Taipei University.
 
 The study examines cumulative abnormal returns (CAR) surrounding share swap alliance announcements in Taiwan using event study methodology.
 
