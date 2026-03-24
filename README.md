@@ -21,17 +21,17 @@ The study examines cumulative abnormal returns (CAR) surrounding share swap alli
 ```
 event-study/
 ├── data/
-│   ├── AR_tej.xlsx               # AR and SAR exported from TEJ
-│   ├── clean_event_data.csv      # Cleaned long-format data (output of 02)
-│   ├── ols_data.xlsx             # Foxconn single-firm demo data
-│   └── firm_fund.xlsx            # Firm-level fundamentals and CAR for regression
+│   ├── AR_tej.xlsx               # Exported from TEJ
+│   ├── clean_event_data.csv      # Output of 02
+│   ├── ols_data.xlsx             # Foxconn demo data
+│   └── firm_fund.xlsx            
 └── notebooks/
-    ├── 01_ols_demo.ipynb         # OLS market model demo (Foxconn)
-    ├── 02_data_cleaning.ipynb    # Reshape TEJ data to long format
-    ├── 03_line_chart.ipynb       # AR and SAR time-series plot
-    ├── 04_all_samples_test.ipynb # Full-sample CAR/CSAR significance tests
-    ├── 05_subgroup_ttest.ipynb   # Paired t-test and Welch's t-test by subgroup
-    └── 06_regression.ipynb       # Cross-sectional OLS regression
+    ├── 01_ols_demo.ipynb         
+    ├── 02_data_cleaning.ipynb    
+    ├── 03_line_chart.ipynb       
+    ├── 04_all_samples_test.ipynb 
+    ├── 05_subgroup_ttest.ipynb   
+    └── 06_regression.ipynb       
 ```
 
 
@@ -39,7 +39,7 @@ event-study/
 
 **1. OLS Demo** (`01_ols_demo.ipynb`)
 
-Demonstrates the market model estimation for a single firm (Foxconn). Estimates alpha and beta from the estimation window, computes AR and SAR, and aggregates CAR/CSAR across event windows.
+Demonstrates the market model estimation for a single firm (Foxconn). Computes AR and SAR, and aggregates CAR/CSAR across event windows.
 
 **2. Data Cleaning** (`02_data_cleaning.ipynb`)
 
@@ -51,11 +51,11 @@ Plots sample-average AR and SAR across event days to visualize return patterns a
 
 **4. Full-Sample Test** (`04_all_samples_test.ipynb`)
 
-Tests whether mean CAR and CSAR are significantly different from zero across all 15 firms. Uses Z-test (normal distribution), consistent with TEJ methodology.
+Tests whether mean CAR and CSAR are significantly different from zero across all 15 firms.
 
 **5. Subgroup Tests** (`05_subgroup_ttest.ipynb`)
 
-- **Paired t-test**: Compares CAR between leading and partnering firms within each alliance event (7 pairs; SAA–SynPower excluded as SynPower was not publicly listed)
+- **Paired t-test**: Compares CAR between leading and partnering firms within each alliance event (7 pairs)
 - **Welch's t-test**: Compares CAR between technologically oriented (N=9) and non-tech (N=6) alliances
 
 **6. Cross-Sectional Regression** (`06_regression.ipynb`)
@@ -66,9 +66,9 @@ OLS regression of CAR on alliance-level and firm-level characteristics:
 |---|---|
 | LEAD | 1 if leading firm, 0 if partnering firm |
 | TECH | 1 if tech-oriented alliance, 0 otherwise |
-| RD | R&D intensity (R&D expenditure / total assets) |
+| RD | R&D intensity |
 | BM | Book-to-market ratio |
-| TECH × RD | Interaction term (RD mean-centered) |
+| TECH × RD | Interaction term  |
 
 
 ## Requirements
