@@ -6,7 +6,6 @@ This repository replicates the empirical analysis from:
 
 The study examines cumulative abnormal returns (CAR) surrounding share swap alliance announcements in Taiwan using event study methodology.
 
----
 
 ## Research Design
 
@@ -16,7 +15,6 @@ The study examines cumulative abnormal returns (CAR) surrounding share swap alli
 - **Model**: Market Model (OLS)
 - **Data Source**: Taiwan Economic Journal (TEJ)
 
----
 
 ## Repository Structure
 
@@ -36,7 +34,6 @@ event-study/
     └── 06_regression.ipynb       # Cross-sectional OLS regression
 ```
 
----
 
 ## Analysis Flow
 
@@ -73,7 +70,6 @@ OLS regression of CAR on alliance-level and firm-level characteristics:
 | BM | Book-to-market ratio |
 | TECH × RD | Interaction term (RD mean-centered) |
 
----
 
 ## Requirements
 
@@ -86,13 +82,6 @@ matplotlib
 openpyxl
 ```
 
-Install all dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
----
 
 ## Notes
 
