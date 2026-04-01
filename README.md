@@ -6,6 +6,11 @@ This repository contains the empirical analysis conducted for:
 
 The study examines cumulative abnormal returns (CAR) surrounding share swap alliance announcements in Taiwan using event study methodology.
 
+## Key Findings
+
+- No significant abnormal returns in the short term
+- Market reaction appears delayed rather than immediate
+- The value of technological alliances is weaker for firms with higher R&D intensity
 
 ## Research Design
 
