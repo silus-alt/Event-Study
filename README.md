@@ -11,7 +11,6 @@ The study examines cumulative abnormal returns (CAR) surrounding share swap alli
 - No significant abnormal returns around the announcement; the market reaction appears delayed rather than immediate
 - Leading firms earn higher CAR than their partnering firms over (-10, +10), after controlling for alliance and firm characteristics
 - The value of technological alliances is weaker for firms with higher R&D intensity
-- Results are robust to alternative event windows and to controlling for firm size and financial leverage
 
 ## Research Design
 
