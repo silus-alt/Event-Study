@@ -21,21 +21,36 @@ The study examines cumulative abnormal returns (CAR) surrounding share swap alli
 - **Data Source**: Taiwan Economic Journal (TEJ)
 
 
+## Results Summary
+
+Full-sample test of mean CAR (N = 15, cross-sectional t-test):
+
+| Event Window | Mean CAR (%) | t | p |
+|---|---:|---:|---:|
+| (-1, +1) | 2.13 | 1.72 | 0.086* |
+| (-5, +5) | -0.93 | -0.37 | 0.713 |
+| (-10, +10) | -1.32 | -0.41 | 0.681 |
+
+\* p < 0.1
+
+Mean CAR is not significant in the wider windows. Cross-sectional regressions on alliance and firm characteristics are in `06_regression.ipynb`.
+
+## Data Availability
+
+Raw data were obtained from the Taiwan Economic Journal (TEJ) database and **are not included in this repository** due to licensing restrictions. All notebook outputs are preserved, so results can be reviewed without the data. See [`data/README.md`](data/README.md) for the required file structure to reproduce the analysis with your own TEJ access.
+
 ## Repository Structure
 
 ```
 event-study/
 ├── data/
-│   ├── AR_tej.xlsx               # Exported from TEJ
-│   ├── clean_event_data.csv      # Output of 02
-│   ├── ols_data.xlsx             # Foxconn demo data
-│   └── firm_fund.xlsx            
+│   └── README.md                 # Required data files and structure
 └── notebooks/
     ├── 01_ols_demo.ipynb         
     ├── 02_data_cleaning.ipynb    
     ├── 03_line_chart.ipynb       
     ├── 04_all_samples_test.ipynb 
-    ├── 05_subgroup_ttest.ipynb   
+    ├── 05_subgroup_test.ipynb    
     └── 06_regression.ipynb       
 ```
 
@@ -58,7 +73,7 @@ Plots sample-average AR and SAR across event days to visualize return patterns a
 
 Tests whether mean CAR and CSAR are significantly different from zero across all 15 firms.
 
-**5. Subgroup Tests** (`05_subgroup_ttest.ipynb`)
+**5. Subgroup Tests** (`05_subgroup_test.ipynb`)
 
 - **Paired t-test**: Compares CAR between leading and partnering firms within each alliance event (7 pairs)
 - **Welch's t-test**: Compares CAR between technologically oriented (N=9) and non-tech (N=6) alliances
