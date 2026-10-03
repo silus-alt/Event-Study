@@ -23,17 +23,15 @@ The study examines cumulative abnormal returns (CAR) surrounding share swap alli
 
 ## Results Summary
 
-Full-sample test of mean CAR (N = 15, cross-sectional t-test):
+Full-sample test (N = 15). Inference is based on the standardized cross-sectional test of mean CSAR; mean CAR is reported for economic magnitude.
 
-| Event Window | Mean CAR (%) | t | p |
-|---|---:|---:|---:|
-| (-1, +1) | 2.13 | 1.72 | 0.086* |
-| (-5, +5) | -0.93 | -0.37 | 0.713 |
-| (-10, +10) | -1.32 | -0.41 | 0.681 |
+| Event Window | Mean CAR (%) | Mean CSAR | t (CSAR) | p (CSAR) |
+|---|---:|---:|---:|---:|
+| (-1, +1) | 2.13 | 0.87 | 1.46 | 0.144 |
+| (-5, +5) | -0.93 | -0.05 | -0.03 | 0.973 |
+| (-10, +10) | -1.32 | -0.31 | -0.20 | 0.838 |
 
-\* p < 0.1
-
-Mean CAR is not significant in the wider windows. Cross-sectional regressions on alliance and firm characteristics are in `06_regression.ipynb`.
+Mean CSAR is not significantly different from zero in any event window. Cross-sectional regressions on alliance and firm characteristics are in `06_regression.ipynb`.
 
 ## Data Availability
 
