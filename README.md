@@ -2,7 +2,7 @@
 
 This repository contains the empirical analysis conducted for:
 
-> Yeh et al. (2026). *Market Reactions to Share Swap-Based Strategic Alliances: Evidence from Taiwanese Listed Companies*. National Taipei University.
+> Yeh et al. (forthcoming). Market Reactions to Share Swap-Based Strategic Alliances: Evidence from Taiwanese Listed Companies. *Journal of Business Administration*.
 
 The study examines cumulative abnormal returns (CAR) surrounding share swap alliance announcements in Taiwan using event study methodology.
 
@@ -31,7 +31,24 @@ Full-sample test (N = 15). Inference is based on the standardized cross-sectiona
 | (-5, +5) | -0.93 | -0.05 | -0.03 | 0.973 |
 | (-10, +10) | -1.32 | -0.31 | -0.20 | 0.838 |
 
-Mean CSAR is not significantly different from zero in any event window. Cross-sectional regressions on alliance and firm characteristics are in `06_regression.ipynb`.
+Mean CSAR is not significantly different from zero in any event window.
+
+Cross-sectional OLS regression of CAR (%) on alliance and firm characteristics (N = 15). Coefficients with t-statistics in parentheses:
+
+| Variable | (-1, +1) | (-5, +5) | (-10, +10) |
+|---|---:|---:|---:|
+| LEAD | 0.59<br>(0.17) | 5.71<br>(1.13) | 9.92**<br>(2.34) |
+| TECH | 0.17<br>(0.05) | 12.35**<br>(2.43) | 13.74**<br>(3.22) |
+| RD | 34.19<br>(0.80) | 11.26<br>(0.18) | 30.63<br>(0.57) |
+| BM | -4.25<br>(-0.85) | -12.38<br>(-1.67) | -24.25***<br>(-3.89) |
+| TECH × RD | -40.70<br>(-0.88) | -71.25<br>(-1.04) | -139.41**<br>(-2.42) |
+| Constant | 2.50<br>(0.54) | -2.88<br>(-0.42) | 1.15<br>(0.20) |
+| R² | 16.7% | 55.0% | 80.3% |
+| Adj. R² | -29.6% | 29.9% | 69.4% |
+
+\*\*\* p < 0.01, \*\* p < 0.05, \* p < 0.1. RD is mean-centered in the interaction term.
+
+Explanatory power rises with window length, consistent with a delayed market reaction. In the (-10, +10) window, tech-oriented alliances earn higher CAR, but this advantage weakens as R&D intensity increases.
 
 ## Data Availability
 
