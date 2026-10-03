@@ -8,9 +8,10 @@ The study examines cumulative abnormal returns (CAR) surrounding share swap alli
 
 ## Key Findings
 
-- No significant abnormal returns in the short term
-- Market reaction appears delayed rather than immediate
+- No significant abnormal returns around the announcement; the market reaction appears delayed rather than immediate
+- Leading firms earn higher CAR than their partnering firms over (-10, +10), after controlling for alliance and firm characteristics
 - The value of technological alliances is weaker for firms with higher R&D intensity
+- Results are robust to alternative event windows and to controlling for firm size and financial leverage
 
 ## Research Design
 
@@ -20,10 +21,11 @@ The study examines cumulative abnormal returns (CAR) surrounding share swap alli
 - **Model**: Market Model (OLS)
 - **Data Source**: Taiwan Economic Journal (TEJ)
 
-
 ## Results Summary
 
-Full-sample test (N = 15). Inference is based on the standardized cross-sectional test of mean CSAR; mean CAR is reported for economic magnitude.
+### Full-Sample Test
+
+Inference is based on the standardized cross-sectional test of mean CSAR; mean CAR is reported for economic magnitude (N = 15).
 
 | Event Window | Mean CAR (%) | Mean CSAR | t (CSAR) | p (CSAR) |
 |---|---:|---:|---:|---:|
@@ -33,9 +35,9 @@ Full-sample test (N = 15). Inference is based on the standardized cross-sectiona
 
 Mean CSAR is not significantly different from zero in any event window.
 
-Mean CSAR is not significantly different from zero in any event window.
+### Cross-Sectional Regression
 
-Cross-sectional OLS regression of CAR on alliance and firm characteristics (N = 15). Significant variables:
+OLS regression of CAR on alliance and firm characteristics (N = 15). Significant variables:
 
 | Variable | Direction | Significant in |
 |---|:---:|---|
@@ -46,6 +48,38 @@ Cross-sectional OLS regression of CAR on alliance and firm characteristics (N = 
 
 Significance at the 5% level or better. No variable is significant in the (-1, +1) window, and explanatory power rises with window length, consistent with a delayed market reaction. Full results are in `06_regression.ipynb`.
 
+## Robustness Checks
+
+### 1. Additional Event Days and Windows
+
+To check whether the null result depends on the choice of symmetric windows, mean CSAR is re-tested on the announcement day, the following day, and three post-announcement windows.
+
+| Period | Mean CSAR | t (CSAR) |
+|---|---:|---:|
+| (0) | -0.02 | -0.08 |
+| (+1) | 0.45 | 0.62 |
+| (0, +1) | 0.43 | 0.61 |
+| (0, +5) | -0.65 | -0.49 |
+| (0, +10) | -0.79 | -0.55 |
+
+None of the periods shows a significant abnormal return, confirming the absence of an immediate market reaction.
+
+### 2. Control Variables
+
+The cross-sectional regression is re-estimated with firm size (SIZE, log of total assets) and financial leverage (LEV, total debt to total assets), each from the fiscal year before the announcement. Results for the (-10, +10) window:
+
+| Variable | Baseline | + SIZE | + LEV |
+|---|:---:|:---:|:---:|
+| TECH | + \*\* | + \*\* | + \*\*\* |
+| LEAD | + \*\* | + \* | + \*\* |
+| BM | − \*\*\* | − \*\*\* | − \*\*\* |
+| TECH × RD | − \*\* | − \* | − \*\*\* |
+| Control | — | n.s. | + \*\* |
+
+\*\*\* p < 0.01, \*\* p < 0.05, \* p < 0.1; n.s. = not significant.
+
+All four variables keep their sign and remain significant under both specifications. SIZE has no effect, while LEV is positively associated with CAR. The main conclusions therefore do not stem from omitted firm size or leverage effects.
+
 ## Data Availability
 
 Raw data were obtained from the Taiwan Economic Journal (TEJ) database and **are not included in this repository** due to licensing restrictions. All notebook outputs are preserved, so results can be reviewed without the data. See [`data/README.md`](data/README.md) for the required file structure to reproduce the analysis with your own TEJ access.
@@ -55,16 +89,17 @@ Raw data were obtained from the Taiwan Economic Journal (TEJ) database and **are
 ```
 event-study/
 ├── data/
-│   └── README.md                 # Required data files and structure
+│   └── README.md                     # Required data files and structure
 └── notebooks/
-    ├── 01_ols_demo.ipynb         
-    ├── 02_data_cleaning.ipynb    
-    ├── 03_line_chart.ipynb       
-    ├── 04_all_samples_test.ipynb 
-    ├── 05_subgroup_test.ipynb    
-    └── 06_regression.ipynb       
+    ├── 01_ols_demo.ipynb
+    ├── 02_data_cleaning.ipynb
+    ├── 03_line_chart.ipynb
+    ├── 04_all_samples_test.ipynb
+    ├── 05_subgroup_test.ipynb
+    ├── 06_regression.ipynb
+    ├── 07_robustness_windows.ipynb
+    └── 08_robustness_controls.ipynb
 ```
-
 
 ## Analysis Flow
 
@@ -99,8 +134,15 @@ OLS regression of CAR on alliance-level and firm-level characteristics:
 | TECH | 1 if tech-oriented alliance, 0 otherwise |
 | RD | R&D intensity |
 | BM | Book-to-market ratio |
-| TECH × RD | Interaction term  |
+| TECH × RD | Interaction term (RD mean-centered) |
 
+**7. Robustness: Additional Windows** (`07_robustness_windows.ipynb`)
+
+Re-tests mean CAR and CSAR on event days (0) and (+1), and windows (0, +1), (0, +5), (0, +10), using the same cross-sectional tests as `04`.
+
+**8. Robustness: Control Variables** (`08_robustness_controls.ipynb`)
+
+Re-estimates the regression in `06`, adding SIZE or LEV as a control variable.
 
 ## Requirements
 
@@ -112,7 +154,6 @@ statsmodels
 matplotlib
 openpyxl
 ```
-
 
 ## Notes
 

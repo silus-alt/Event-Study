@@ -10,8 +10,8 @@ To reproduce the analysis, obtain the data through your own TEJ access and place
 |---|---|---|---|
 | `ols_data.xlsx` | TEJ | `01_ols_demo` | Daily stock and market returns for Foxconn (2317), event days -240 to +10 |
 | `AR_tej.xlsx` | TEJ event study module | `02_data_cleaning` | AR and SAR for all 15 firms, event days -10 to +10 |
-| `clean_event_data.csv` | Output of `02_data_cleaning` | `03`, `04`, `05` | Long-format AR and SAR |
-| `firm_fund.xlsx` | TEJ + own calculation | `06_regression` | Firm characteristics and CAR by window |
+| `clean_event_data.csv` | Output of `02_data_cleaning` | `03`, `04`, `05`, `07` | Long-format AR and SAR |
+| `firm_fund.xlsx` | TEJ + own calculation | `06`, `08` | Firm characteristics and CAR by window |
 
 ## File Structure
 
@@ -53,4 +53,6 @@ Firm columns: `Shuttle`, `InterServ`, `Walsin`, `Teco (1)`, `SAA`, `UMC`, `Chipb
 | `TECH` | 1 if tech-oriented alliance, 0 otherwise |
 | `RD` | R&D intensity |
 | `BM` | Book-to-market ratio |
+| `SIZE` | ln(total assets), fiscal year before announcement |
+| `LEV` | Total debt / total assets, fiscal year before announcement |
 | `CAR -10~+10`, `CAR -5~+5`, `CAR -1~+1` | CAR (%) for each event window |
